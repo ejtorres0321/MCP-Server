@@ -13,7 +13,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
     <div className="flex min-h-screen items-center justify-center px-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl text-primary">Manuel Solis</CardTitle>
+          <CardTitle className="text-2xl text-primary">Law Office of Manuel Solis</CardTitle>
           <CardDescription>Database Console — Sign in to continue</CardDescription>
         </CardHeader>
         <CardContent>
