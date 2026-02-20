@@ -79,7 +79,7 @@ export interface ParsedQueryResult {
 
 // ── Visualization Types ───────────────────────────────────────────────
 
-export type VisualizationType = "table" | "bar" | "line" | "pie" | "big-number";
+export type VisualizationType = "table" | "bar" | "line" | "pie" | "heatmap" | "big-number";
 
 export interface VisualizationRecommendation {
   type: VisualizationType;

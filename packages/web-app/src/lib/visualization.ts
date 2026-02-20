@@ -88,6 +88,22 @@ export function recommendVisualization(
     }
   }
 
+  // Rule 5: Three columns — two categorical + one numeric → heatmap candidate
+  if (headers.length === 3 && rowCount >= 4) {
+    const numericCols = headers.filter((h) =>
+      rows.every((r) => typeof r[h] === "number" || !isNaN(Number(r[h])))
+    );
+    const categoricalCols = headers.filter((h) => !numericCols.includes(h));
+    if (categoricalCols.length === 2 && numericCols.length === 1) {
+      return {
+        type: "heatmap",
+        xKey: categoricalCols[0],
+        yKey: numericCols[0],
+        reason: "Cross-tabulated data suitable for heatmap",
+      };
+    }
+  }
+
   // Default: table
   return { type: "table", reason: "Complex data best viewed as table" };
 }

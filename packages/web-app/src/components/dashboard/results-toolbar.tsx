@@ -60,8 +60,11 @@ export function ResultsToolbar({
   const [exporting, setExporting] = useState<"excel" | "pdf" | null>(null);
 
   const canChart =
-    recommendation.type !== "table" && recommendation.type !== "big-number";
+    recommendation.type !== "table" &&
+    recommendation.type !== "big-number" &&
+    recommendation.type !== "heatmap";
   const canBigNumber = recommendation.type === "big-number";
+  const canHeatmap = recommendation.type === "heatmap";
 
   const handleExportExcel = useCallback(async () => {
     setExporting("excel");
@@ -101,6 +104,14 @@ export function ResultsToolbar({
             view="big-number"
             activeView={activeView}
             onClick={() => onViewChange("big-number")}
+          />
+        )}
+        {canHeatmap && (
+          <ViewTab
+            label="Heatmap"
+            view="heatmap"
+            activeView={activeView}
+            onClick={() => onViewChange("heatmap")}
           />
         )}
         {canChart && (

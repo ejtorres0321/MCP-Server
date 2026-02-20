@@ -7,6 +7,7 @@ import { recommendVisualization } from "@/lib/visualization";
 import { ResultsToolbar } from "./results-toolbar";
 import { DataTable } from "./data-table";
 import { DataChart } from "./data-chart";
+import { DataHeatmap } from "./data-heatmap";
 import { BigNumberCard } from "./big-number-card";
 
 function ChartIcon({ className }: { className?: string }) {
@@ -187,6 +188,10 @@ export function ResultsPanel() {
               />
             </div>
           )}
+
+        {state.activeView === "heatmap" && (
+          <DataHeatmap data={rows} headers={headers} />
+        )}
 
         {(state.activeView === "bar" ||
           state.activeView === "line" ||
